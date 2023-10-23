@@ -1,0 +1,214 @@
+.wrap {
+  max-width: 510px;
+  margin: 0 auto;
+  margin-top: 60px;
+  margin-bottom: 500px;
+  padding: 0px 15px;
+}
+
+.cur_task {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.list_top {
+  border-bottom: 2px solid #e3b6b6;
+  font-size: 20px;
+  padding: 15px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top_btn {
+  background-color: transparent;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: color linear 0.3s;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.top_btn svg {
+  align-self: top;
+}
+
+.list {
+  list-style: none;
+  padding: 20px 0px;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.list_item_wrap {
+  background-color: rgba(180, 180, 180, 0.6);
+  border-radius: 4px;
+}
+
+.list_item {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 4px;
+  cursor: pointer;
+  padding: 18px;
+  font-weight: 700;
+  color: #555;
+  border-left: 6px solid transparent;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 510px;
+  z-index: 10;
+}
+
+.list_item_wrap:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.task_left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.task_left svg {
+  font-size: 28px;
+  color: rgb(223, 223, 223);
+  flex-shrink: 0;
+}
+
+.task_left ~ svg {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.add_btn {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  padding: 20px;
+  color: #fff;
+  text-transform: capitalize;
+  opacity: 0.8;
+}
+
+.add_btn svg {
+  font-size: 22px;
+}
+.add_wrap {
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.add_input_wrap {
+  padding: 30px 20px;
+}
+
+.add_input {
+  font-size: 22px;
+  box-shadow: none;
+  border: none;
+  color: #555;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+
+.add_input::placeholder {
+  opacity: 0.5;
+}
+
+.add_footer {
+  padding: 14px 20px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background-color: rgb(239, 239, 239);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+.add_cancel_btn,
+.add_save_btn {
+  cursor: pointer;
+  background-color: transparent;
+  font-family: "Roboto", sans-serif;
+  border-radius: 4px;
+  color: rgb(136, 136, 136);
+  font-weight: bold;
+  box-shadow: none;
+}
+
+.add_cancel_btn {
+  opacity: 0.9;
+  padding: 8px 12px;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+}
+
+.add_save_btn {
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 25px;
+  background-color: rgb(34, 34, 34);
+  position: relative;
+}
+
+.add_save_btn:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+.add_save_btn::after {
+  content: "";
+  background-color: rgba(255, 255, 255, 0.4);
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transition: width 0.7s linear, opacity 0.5s ease;
+}
+
+.add_save_active::after {
+  width: 100%;
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .top_btn:hover {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .list_item:hover {
+    border-color: #ccc;
+  }
+
+  .task_left svg:hover,
+  .task_left ~ svg:hover {
+    opacity: 0.6;
+  }
+
+  .add_btn:hover {
+    opacity: 1;
+  }
+}

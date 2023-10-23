@@ -1,0 +1,24 @@
+.btn {
+  background-color: #fff;
+  color: #ba4949;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 15px 0px;
+  max-width: 240px;
+  width: 100%;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  text-transform: uppercase;
+  font-family: Roboto, sans-serif;
+  letter-spacing: 1.5px;
+  box-shadow: rgb(213, 213, 213) 0px 6px 0px;
+}
+
+.btn:active,
+.btn_active {
+  transform: translateY(6px);
+  box-shadow: none;
+}

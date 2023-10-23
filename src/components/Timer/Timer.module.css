@@ -1,0 +1,108 @@
+.wrap {
+  composes: wrap from "../TimerSettings/TimerSettings.module.css";
+  text-align: center;
+}
+
+.progress {
+  font-size: 26px;
+  text-align: center;
+}
+
+.top {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.top_item {
+  font-size: 18px;
+  padding: 8px 10px;
+  font-weight: 500;
+}
+
+.active {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.time {
+  font-size: 120px;
+  text-align: center;
+  font-weight: 500;
+  margin: 40px 0px;
+}
+
+.end_title {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+
+.end_img {
+  width: 200px;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  animation: jump 2.5s ease-in-out infinite;
+}
+
+@keyframes jump {
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.end_text {
+  margin: 20px auto 0px auto;
+  padding: 0px 25px;
+  line-height: 1.6;
+}
+
+.end_count {
+  font-size: 28px;
+  max-width: 180px;
+  margin: 30px auto;
+}
+
+@media (max-width: 767px) {
+  .wrap {
+    padding: 20px 15px;
+  }
+
+  .time {
+    font-size: 100px;
+  }
+  .end_text {
+    font-size: 18px;
+    padding: 0px 10px;
+  }
+
+  .end_count {
+    font-size: 24px;
+  }
+}
+
+.end_hours {
+  display: block;
+  text-align: left;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.end_hours span {
+  margin-left: 10px;
+}
+
+.end_minutes {
+  text-align: left;
+  display: block;
+  letter-spacing: 3px;
+}
+
+.end_minutes span {
+  margin-left: 10px;
+}

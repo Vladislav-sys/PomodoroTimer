@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  color: #fff;
+}
+
+.ant-select-item-option {
+  font-size: 20px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  vertical-align: top;
+}
+
+.ant-select-selection-item {
+  font-size: 20px !important;
+}
