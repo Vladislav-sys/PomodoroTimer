@@ -51,7 +51,6 @@ function TimerSettings({ className }: Props) {
             listHeight={200}
             virtual={false}
             options={[
-              { value: 0.1, label: "0 min" },
               { value: 25, label: "25 min" },
               { value: 30, label: "30 min" },
               { value: 35, label: "35 min" },
@@ -73,7 +72,6 @@ function TimerSettings({ className }: Props) {
             listHeight={200}
             virtual={false}
             options={[
-              { value: 0.1, label: "0 min" },
               { value: 10, label: "10 min" },
               { value: 15, label: "15 min" },
               { value: 20, label: "20 min" },

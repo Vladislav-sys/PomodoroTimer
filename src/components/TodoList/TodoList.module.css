@@ -2,7 +2,7 @@
   max-width: 510px;
   margin: 0 auto;
   margin-top: 60px;
-  margin-bottom: 500px;
+  margin-bottom: 250px;
   padding: 0px 15px;
 }
 
@@ -55,7 +55,8 @@
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 4px;
   cursor: pointer;
-  padding: 18px;
+  padding: 5px 18px;
+  height: 64px;
   font-weight: 700;
   color: #555;
   border-left: 6px solid transparent;
@@ -122,6 +123,7 @@
 
 .add_input {
   font-size: 22px;
+  width: 100%;
   box-shadow: none;
   border: none;
   color: #555;
