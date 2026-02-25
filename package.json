@@ -12,8 +12,7 @@
     "format:check": "prettier --check src",
     "stylelint": "stylelint src",
     "lint": "eslint src --quiet",
-    "type-check": "tsc",
-    "deploy": "gh-pages -d dist"
+    "type-check": "tsc"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",

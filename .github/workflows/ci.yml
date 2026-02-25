@@ -1,4 +1,4 @@
-name: GitHub Actions Main CI workflow
+name: Main CI
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
@@ -13,25 +13,60 @@ on:
     branches:
       - main
 jobs:
-  Continuous_integration:
+  format_check:
     runs-on: ubuntu-latest
+    container:
+      image: node:20
     steps:
-      - run: echo "🎉 The main job was automatically triggered by a ${{ github.event_name }} event"
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
         uses: actions/checkout@v5
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v4
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --cache ~/.npm --prefer-offline
       - name: Run formatting check
         run: npm run format:check
-      - name: Run typecheck
-        run: npm run type-check
+  lint_check:
+    runs-on: ubuntu-latest
+    container:
+      image: node:20
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v5
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v4
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+      - name: Install dependencies
+        run: npm ci --cache ~/.npm --prefer-offline
       - name: Run lint check
         run: npm run lint
-      - name: Run build
-        run: npm run build
-      - name: Check status
-        run: echo "🍏 This job's status is ${{ job.status }}."
+  type_check:
+    runs-on: ubuntu-latest
+    container:
+      image: node:20
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v5
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v4
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+      - name: Install dependencies
+        run: npm ci --cache ~/.npm --prefer-offline
+      - name: Run typecheck
+        run: npm run type-check

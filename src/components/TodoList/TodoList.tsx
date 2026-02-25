@@ -5,8 +5,8 @@ import {
   toggleCompleted,
   deleteTask,
   deleteAllTasks,
-  addAsyncTask,
   reorderTasks,
+  addTask,
 } from "../../app/slices/todosSlice"
 import cls from "./TodoList.module.css"
 import { RiDeleteBin5Fill } from "react-icons/ri"
@@ -22,7 +22,7 @@ function TodoList() {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const [taskText, setTaskText] = useState<string>("")
 
-  const [isTaskAdding, setIsTaskAdding] = useState<boolean>(false)
+  const [isTaskAdding] = useState<boolean>(false)
   const refDrag = useRef<boolean>(false)
 
   useLocaleStorage("todos", tasks)
@@ -218,15 +218,9 @@ function TodoList() {
               disabled={isTaskAdding}
               onClick={() => {
                 if (taskText.length === 0) return
-                setIsTaskAdding(true)
-                dispatch(addAsyncTask(taskText))
-                  .unwrap()
-                  .then(() => {
-                    setIsOpen(false)
-                    setTaskText("")
-                    setIsTaskAdding(false)
-                  })
-                  .catch((e) => console.log(e))
+                dispatch(addTask(taskText))
+                setIsOpen(false)
+                setTaskText("")
               }}
             >
               Add
