@@ -9,11 +9,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,16 +19,7 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v5
-      - name: Cache node modules
-        id: cache-npm
-        uses: actions/cache@v4
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.npm
-          key: ${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-      - name: Install dependencies
-        run: npm ci --cache ~/.npm --prefer-offline
+      - uses: ./.github/actions/prepare_deps
       - name: Build
         run: npm run build
       - name: Setup Pages
@@ -45,6 +31,11 @@ jobs:
           path: "./build"
 
   deploy:
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
     needs: build
 
     environment:
