@@ -63,6 +63,7 @@ const slice = createSlice({
     },
 
     resetTimer() {
+      localStorage.removeItem("timer")
       return defaultState
     },
 

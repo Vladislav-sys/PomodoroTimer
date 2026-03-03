@@ -12,5 +12,5 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 export const useLocaleStorage = (key: string, val: unknown): void => {
   useEffect(() => {
     localStorage.setItem(key, JSON.stringify(val))
-  }, [val])
+  }, [key, val])
 }
