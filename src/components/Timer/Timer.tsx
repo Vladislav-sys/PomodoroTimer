@@ -30,7 +30,13 @@ function Timer({ className }: Props) {
     }, 1000)
 
     return () => clearTimeout(timerId)
-  }, [timerInfo.isTimer, timerInfo.remTime])
+  }, [
+    dispatch,
+    timerInfo.curSession,
+    timerInfo.numOfSessions,
+    timerInfo.isTimer,
+    timerInfo.remTime,
+  ])
 
   useEffect(() => {
     if (timerInfo.curSession > timerInfo.numOfSessions) {
