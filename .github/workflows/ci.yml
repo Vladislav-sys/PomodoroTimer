@@ -1,9 +1,6 @@
 name: Main CI
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
-  push:
-    branches:
-      - main
   pull_request:
     types:
       - opened
@@ -12,6 +9,8 @@ on:
       - synchronize
     branches:
       - main
+  workflow_call:
+
 jobs:
   format_check:
     runs-on: ubuntu-latest
